@@ -2,7 +2,7 @@ extends Node2D
 
 var timer: float = 20.0
 var isRunning: bool = false
-var jobs: Array[Job] = []
+@export var jobs: Array[Job] = []
 
 func endGame():
 	print("Game over!") # placeholder game over function
@@ -10,6 +10,9 @@ func endGame():
 func _init(jobArray: Array[Job], initialTimer: float = 20.0):
 	timer = initialTimer
 	jobs = jobArray
+	
+func start():
+	isRunning = true
 	
 # function for scheduling and running the jobs for the player to do
 func handleJobQueue():
