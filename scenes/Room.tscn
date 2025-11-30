@@ -1,7 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dinuwh6re7pbh"]
+[gd_scene load_steps=4 format=3 uid="uid://dinuwh6re7pbh"]
 
 [ext_resource type="PackedScene" uid="uid://b65sgmhjwbp2" path="res://scenes/JobScheduler.tscn" id="1_llheb"]
+[ext_resource type="Texture2D" uid="uid://c4nlu7mm7w1jx" path="res://assets/RoomDefault.png" id="2_liqgt"]
+[ext_resource type="PackedScene" uid="uid://ddqt88e0gfr8v" path="res://scenes/Lever.tscn" id="3_hfcue"]
 
 [node name="Room" type="Node2D"]
 
-[node name="JobScheduler" parent="." instance=ExtResource("1_llheb")]
+[node name="JobScheduler" parent="." node_paths=PackedStringArray("jobs") instance=ExtResource("1_llheb")]
+jobs = [NodePath("../Lever")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_liqgt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Lever" parent="." instance=ExtResource("3_hfcue")]
+position = Vector2(128, -25)
